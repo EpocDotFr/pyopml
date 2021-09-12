@@ -20,7 +20,7 @@ class OpmlDocument(Outlinable):
         self.window_bottom = kvargs.get('window_bottom')
         self.window_right = kvargs.get('window_right')
 
-    def to_string(self, pretty=False, encoding='UTF-8', xml_declaration=True):
+    def dumps(self, pretty=False, encoding='UTF-8', xml_declaration=True):
         return etree.tostring(
             self._build_tree(),
             pretty_print=pretty,
@@ -28,9 +28,9 @@ class OpmlDocument(Outlinable):
             xml_declaration=xml_declaration
         )
 
-    def to_file(self, file_or_filename, pretty=False, encoding='UTF-8', xml_declaration=True):
+    def dump(self, fp, pretty=False, encoding='UTF-8', xml_declaration=True):
         etree.ElementTree(self._build_tree()).write(
-            file_or_filename,
+            fp,
             pretty_print=pretty,
             encoding=encoding,
             xml_declaration=xml_declaration
