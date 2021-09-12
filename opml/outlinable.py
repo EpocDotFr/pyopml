@@ -1,11 +1,10 @@
-from .opml_outline import OpmlOutline
-
-
 class Outlinable:
     def __init__(self):
         self.outlines = []
 
     def add_outline(self, text, **kvargs):
+        from .opml_outline import OpmlOutline
+
         outline = OpmlOutline(text, **kvargs)
 
         self.outlines.append(outline)
