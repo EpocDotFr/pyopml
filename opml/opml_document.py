@@ -22,21 +22,21 @@ class OpmlDocument(Outlinable):
 
     def dumps(self, pretty=False, encoding='UTF-8', xml_declaration=True):
         return etree.tostring(
-            self._build_tree(),
+            self.build_tree(),
             pretty_print=pretty,
             encoding=encoding,
             xml_declaration=xml_declaration
         )
 
     def dump(self, fp, pretty=False, encoding='UTF-8', xml_declaration=True):
-        etree.ElementTree(self._build_tree()).write(
+        etree.ElementTree(self.build_tree()).write(
             fp,
             pretty_print=pretty,
             encoding=encoding,
             xml_declaration=xml_declaration
         )
 
-    def _build_tree(self):
+    def build_tree(self):
         root = etree.Element('opml', version='2.0')
         head = etree.SubElement(root, 'head')
         body = etree.SubElement(root, 'body')
