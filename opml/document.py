@@ -4,6 +4,56 @@ from lxml import etree
 
 
 class OpmlDocument(Outlinable):
+    """Class that holds an OPML 2.0 document.
+
+    :param str title: Title of the document
+    :ivar title: Title of the document
+    :vartype title: str
+
+    :param datetime.datetime date_created: When the document was created
+    :ivar date_created: When the document was created
+    :vartype date_created: datetime.datetime
+
+    :param datetime.datetime date_modified: When the document was last modified
+    :ivar date_modified: When the document was last modified
+    :vartype date_modified: datetime.datetime
+
+    :param str owner_name: Owner of the document
+    :ivar owner_name: Owner of the document
+    :vartype owner_name: str
+
+    :param str owner_email: Email address of the owner of the document
+    :ivar owner_email: Email address of the owner of the document
+    :vartype owner_email: str
+
+    :param str owner_id: Unique URL that contains information that allows a human reader to communicate with the author of the document via email or other means. It also may be used to identify the author
+    :ivar owner_id: Unique URL that contains information that allows a human reader to communicate with the author of the document via email or other means. It also may be used to identify the author
+    :vartype owner_id: str
+
+    :param list expansion_state: List of line numbers that are expanded. The line numbers in the list tell you which headlines to expand. The order is important. For each element in the list, X, starting at the first summit, navigate flatdown X times and expand. Repeat for each element in the list
+    :ivar expansion_state: List of line numbers that are expanded. The line numbers in the list tell you which headlines to expand. The order is important. For each element in the list, X, starting at the first summit, navigate flatdown X times and expand. Repeat for each element in the list
+    :vartype expansion_state: list
+
+    :param int vert_scroll_state: Which line of the outline is displayed on the top line of the window. This number is calculated with the expansion state already applied
+    :ivar vert_scroll_state: Which line of the outline is displayed on the top line of the window. This number is calculated with the expansion state already applied
+    :vartype vert_scroll_state: int
+
+    :param int window_top: Pixel location of the top edge of the window
+    :ivar window_top: Pixel location of the top edge of the window
+    :vartype window_top: int
+
+    :param int window_left: Pixel location of the left edge of the window
+    :ivar window_left: Pixel location of the left edge of the window
+    :vartype window_left: int
+
+    :param int window_bottom: Pixel location of the bottom edge of the window
+    :ivar window_bottom: Pixel location of the bottom edge of the window
+    :vartype window_bottom: int
+
+    :param int window_right: Pixel location of the right edge of the window
+    :ivar window_right: Pixel location of the right edge of the window
+    :vartype window_right: int
+    """
     def __init__(self, **kvargs):
         super(OpmlDocument, self).__init__()
 
@@ -21,6 +71,13 @@ class OpmlDocument(Outlinable):
         self.window_right = kvargs.get('window_right')
 
     def dumps(self, pretty=False, encoding='UTF-8', xml_declaration=True):
+        """Serialize this document to a string.
+
+        :param bool pretty: Whether to pretty print the outputted XML code or not
+        :param str encoding: The encoding to use. Will also define the XML's encoding declaration
+        :param bool xml_declaration: Whether to define the XML's encoding declaration or not
+        :rtype: str
+        """
         return etree.tostring(
             self.build_tree(),
             pretty_print=pretty,
@@ -29,6 +86,13 @@ class OpmlDocument(Outlinable):
         )
 
     def dump(self, fp, pretty=False, encoding='UTF-8', xml_declaration=True):
+        """Serialize this document to a file-like object or a filename.
+
+        :param fp: A file-like object or a filename
+        :param bool pretty: Whether to pretty print the outputted XML code or not
+        :param str encoding: The encoding to use. Will also define the XML's encoding declaration
+        :param bool xml_declaration: Whether to define the XML's encoding declaration or not
+        """
         etree.ElementTree(self.build_tree()).write(
             fp,
             pretty_print=pretty,
@@ -38,12 +102,22 @@ class OpmlDocument(Outlinable):
 
     @classmethod
     def loads(cls, s):
+        """Unserialize OPML 2.0 data from a string.
+
+        :param str s: The string to unserialize from
+        :rtype: opml.OpmlDocument
+        """
         return cls.unbuild_tree(
             etree.fromstring(s)
         )
 
     @classmethod
     def load(cls, fp):
+        """Unserialize OPML 2.0 data from file.
+
+        :param fp: A file-like object or a filename to an OPML file
+        :rtype: opml.OpmlDocument
+        """
         return cls.unbuild_tree(
             etree.parse(fp).getroot()
         )
