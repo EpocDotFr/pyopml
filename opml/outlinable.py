@@ -3,7 +3,7 @@ class Outlinable:
         self.outlines = []
 
     def add_outline(self, text, **kvargs):
-        from .opml_outline import OpmlOutline
+        from .outline import OpmlOutline
 
         outline = OpmlOutline(text, **kvargs)
 
