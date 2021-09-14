@@ -38,3 +38,11 @@ class Outlinable:
     def build_outlines_tree(self, parent):
         for outline in self.outlines:
             parent.append(outline.build_tree())
+
+    def unbuild_outlines_tree(self, parent):
+        from .outline import OpmlOutline
+
+        for node in parent.iterchildren(tag='outline'):
+            self.outlines.append(
+                OpmlOutline.unbuild_tree(node)
+            )

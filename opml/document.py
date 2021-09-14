@@ -36,17 +36,20 @@ class OpmlDocument(Outlinable):
             xml_declaration=xml_declaration
         )
 
-    def loads(self, s):
-        self.unbuild_tree(
+    @classmethod
+    def loads(cls, s):
+        return cls.unbuild_tree(
             etree.fromstring(s)
         )
 
-    def load(self, fp):
-        self.unbuild_tree(
+    @classmethod
+    def load(cls, fp):
+        return cls.unbuild_tree(
             etree.parse(fp).getroot()
         )
 
-    def unbuild_tree(self, root):
+    @classmethod
+    def unbuild_tree(cls, root):
         version = root.get('version')
 
         if not version:
@@ -54,70 +57,81 @@ class OpmlDocument(Outlinable):
         elif version != '2.0':
             raise ValueError('This package only supports OPML 2.0 specification')
 
+        document = cls()
+
         head = root.find('head')
 
-        if not head:
+        if head is None:
             raise ValueError('"head" node not found')
 
         title = head.findtext('title')
 
         if title:
-            self.title = title
+            document.title = title
 
         date_created = head.findtext('dateCreated')
 
         if date_created:
-            self.date_created = rfc2822_to_datetime(date_created)
+            document.date_created = rfc2822_to_datetime(date_created)
 
         date_modified = head.findtext('dateModified')
 
         if date_modified:
-            self.date_modified = rfc2822_to_datetime(date_modified)
+            document.date_modified = rfc2822_to_datetime(date_modified)
 
         owner_name = head.findtext('ownerName')
 
         if owner_name:
-            self.owner_name = owner_name
+            document.owner_name = owner_name
 
         owner_email = head.findtext('ownerEmail')
 
         if owner_email:
-            self.owner_email = owner_email
+            document.owner_email = owner_email
 
         owner_id = head.findtext('ownerId')
 
         if owner_id:
-            self.owner_id = owner_id
+            document.owner_id = owner_id
 
         expansion_state = head.findtext('expansionState')
 
         if expansion_state:
-            self.expansion_state = expansion_state.split(',')
+            document.expansion_state = expansion_state.split(',')
 
         vert_scroll_state = head.findtext('vertScrollState')
 
         if vert_scroll_state:
-            self.vert_scroll_state = vert_scroll_state
+            document.vert_scroll_state = vert_scroll_state
 
         window_top = head.findtext('windowTop')
 
         if window_top:
-            self.window_top = window_top
+            document.window_top = window_top
 
         window_left = head.findtext('windowLeft')
 
         if window_left:
-            self.window_left = window_left
+            document.window_left = window_left
 
         window_bottom = head.findtext('windowBottom')
 
         if window_bottom:
-            self.window_bottom = window_bottom
+            document.window_bottom = window_bottom
 
         window_right = head.findtext('windowRight')
 
         if window_right:
-            self.window_right = window_right
+            document.window_right = window_right
+
+        body = root.find('body')
+
+        if body is None:
+            raise ValueError('"body" node not found')
+
+        document.unbuild_outlines_tree(body)
+
+        return document
 
     def build_tree(self):
         root = etree.Element('opml', version='2.0')
@@ -160,7 +174,7 @@ class OpmlDocument(Outlinable):
         if self.window_right:
             etree.SubElement(head, 'windowRight').text = self.window_right
 
-        etree.SubElement(head, 'docs').text = 'http://dev.opml.org/spec2.html'
+        etree.SubElement(head, 'docs').text = 'http://opml.org/spec2.opml'
 
         self.build_outlines_tree(body)
 
