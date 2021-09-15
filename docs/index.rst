@@ -177,6 +177,8 @@ API docs
 
 .. autoclass:: opml.OpmlDocument
    :members:
+.. autoclass:: opml.OpmlOutline
+   :members:
 
 .. |pyversion| image:: https://img.shields.io/pypi/pyversions/pyopml.svg?link=https://pypi.python.org/pypi/pyopml
 .. |pypiv| image:: https://img.shields.io/pypi/v/pyopml.svg?link=https://pypi.python.org/pypi/pyopml
