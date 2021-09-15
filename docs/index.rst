@@ -165,7 +165,7 @@ Complete examples
 
 Here's Python implementations of examples as shown on the `official OPML site <http://opml.org/spec2.opml#1629043023000>`__:
 
-* <http://hosting.opml.org/dave/spec/subscriptionList.opml>`__
+* http://hosting.opml.org/dave/spec/subscriptionList.opml
 
 .. toggle::
 

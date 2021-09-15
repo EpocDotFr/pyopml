@@ -4,6 +4,60 @@ from lxml import etree
 
 
 class OpmlOutline(Outlinable):
+    """Class that holds an OPML 2.0 outline element.
+
+    :param str text: Text of the outline
+    :ivar text: Text of the outline
+    :vartype text: str
+
+    :param str type: How the other attributes of the outline are interpreted. One of ``rss``, ``link`` or ``include``
+    :ivar type: How the other attributes of the outline are interpreted. One of ``rss``, ``link`` or ``include``
+    :vartype type: str
+
+    :param bool is_comment: Whether the outline is commented or not
+    :ivar is_comment: Whether the outline is commented or not
+    :vartype is_comment: bool
+
+    :param bool is_breakpoint: Whether a breakpoint is set on this outline
+    :ivar is_breakpoint: Whether a breakpoint is set on this outline
+    :vartype is_breakpoint: bool
+
+    :param datetime.datetime created: Date-time that the outline node was created
+    :ivar created: Date-time that the outline node was created
+    :vartype created: datetime.datetime
+
+    :param str xml_url: URL to the feed when ``type`` is ``rss``
+    :ivar xml_url: URL to the feed when ``type`` is ``rss``
+    :vartype xml_url: str
+
+    :param str description: Top-level description element from the feed (if this outline is part of a subscription list)
+    :ivar description: Top-level description element from the feed (if this outline is part of a subscription list)
+    :vartype description: str
+
+    :param str html_url: Top-level link element from the feed (if this outline is part of a subscription list)
+    :ivar html_url: Top-level link element from the feed (if this outline is part of a subscription list)
+    :vartype html_url: str
+
+    :param str language: Top-level language element from the feed (if this outline is part of a subscription list)
+    :ivar language: Top-level language element from the feed (if this outline is part of a subscription list)
+    :vartype language: str
+
+    :param str title: Top-level title element from the feed (if this outline is part of a subscription list)
+    :ivar title: Top-level title element from the feed (if this outline is part of a subscription list)
+    :vartype title: str
+
+    :param str version: RSS version when ``type`` is ``rss``. One of ``RSS``, ``RSS1``, ``RSS2`` or ``scriptingNews``
+    :ivar version: RSS version when ``type`` is ``rss``. One of ``RSS``, ``RSS1``, ``RSS2`` or ``scriptingNews``
+    :vartype version: str
+
+    :param str url: An URL to a web page when ``type`` is ``link``
+    :ivar url: An URL to a web page when ``type`` is ``link``
+    :vartype url: str
+
+    :param list categories: A list of `RSS 2.0 <https://validator.w3.org/feed/docs/rss2.html#ltcategorygtSubelementOfLtitemgt>`__ categories. To represent a "tag", the category string should contain no slashes
+    :ivar categories: A list of `RSS 2.0 <https://validator.w3.org/feed/docs/rss2.html#ltcategorygtSubelementOfLtitemgt>`__ categories. To represent a "tag", the category string should contain no slashes
+    :vartype categories:
+    """
     def __init__(self, text, **kvargs):
         super(OpmlOutline, self).__init__()
 
