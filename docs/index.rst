@@ -51,6 +51,8 @@ Already knows some of the argument's values? Just pass them:
         owner_email='gerry@hendley-associates.com'
     )
 
+Continue reading to learn about what you can do.
+
 Manipulating OPML documents
 ***************************
 
@@ -66,6 +68,7 @@ You can **get and set the document's metadata** using the aforementioned class' 
     document = OpmlDocument()
 
     print(document.date_created) # None
+    print(document.title) # None
 
     document.date_created = datetime.now()
     document.title = 'Hendley Associates - Feeds'
@@ -73,16 +76,16 @@ You can **get and set the document's metadata** using the aforementioned class' 
     print(document.date_created) # 2021-09-14 23:02:52.237540
     print(document.title) # Hendley Associates - Feeds
 
-You can of course **add outlines** using :func:`opml.OpmlDocument.add_rss`, :func:`opml.OpmlDocument.add_link`, :func:`opml.OpmlDocument.add_include` and :func:`opml.OpmlDocument.add_outline`:
+You can of course **add outlines** using a bunch of methods:
+
+* :func:`opml.OpmlDocument.add_rss` which adds an URL to a RSS feed:
 
 .. code-block:: python
 
     from opml import OpmlDocument
-    from datetime import datetime
 
-    document = OpmlDocument(title='Hendley Associates')
+    document = OpmlDocument()
 
-    # RSS
     document.add_rss(
         'Intelligence News Feed',
         'https://hendley-associates.com/feeds/intelligence.rss',
@@ -90,22 +93,55 @@ You can of course **add outlines** using :func:`opml.OpmlDocument.add_rss`, :fun
         created=datetime.now()
     )
 
-    # Link
+* :func:`opml.OpmlDocument.add_link` which adds an URL:
+
+.. code-block:: python
+
+    from opml import OpmlDocument
+
+    document = OpmlDocument()
+    
     document.add_link(
         'Jack Ryan re-elected for second mandate',
         'https://hendley-associates.com/articles/usa/2021/08/02/jack-ryan-re-elected-second-mandate.html',
         language='en'
     )
 
-    # Include
+* :func:`opml.OpmlDocument.add_include` which points to another OPML 2.0 file:
+
+.. code-block:: python
+
+    from opml import OpmlDocument
+
+    document = OpmlDocument()
+    
     document.add_include(
         'All Feeds',
         'https://hendley-associates.com/feeds.opml',
         categories=['/Intelligence/USA', 'intelligence']
     )
 
-    # Custom (used internally but of course publicly available)
-    document.add_outline('I am just a label')
+* :func:`opml.OpmlDocument.add_outline`, a low-level method used by the aforementioned ones, which can add anything:
+
+.. code-block:: python
+
+    from opml import OpmlDocument
+
+    document = OpmlDocument()
+
+    document.add_outline('The Campus')
+
+You can **append outlines to others**, in a tree-like fashion:
+
+.. code-block:: python
+
+    from opml import OpmlDocument
+
+    document = OpmlDocument()
+    
+.. todo::
+
+    Document.
 
 Serializing OPML documents
 **************************
@@ -116,6 +152,15 @@ Serializing OPML documents
 
 Unserializing OPML documents
 ****************************
+
+.. todo::
+
+    Document.
+
+Complete examples
+*****************
+
+Here's Python implementations of examples as shown on the `official OPML site <http://opml.org/spec2.opml#1629043023000>`__:
 
 .. todo::
 
