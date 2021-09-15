@@ -58,11 +58,17 @@ html_theme = 'alabaster'
 
 html_theme_options = {
     'show_powered_by': False,
+    'github_button': False,
     'github_banner': True,
     'github_user': 'EpocDotFr',
     'github_repo': 'pyopml',
     'fixed_sidebar': True,
     'logo_name': True,
+    'extra_nav_links': {
+        'PyOPML @ GitHub': 'https://github.com/EpocDotFr/pyopml',
+        'PyOPML @ PyPI': 'https://pypi.python.org/pypi/pyopml',
+        'Issue Tracker': 'https://github.com/EpocDotFr/pyopml/issues',
+    }
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -70,12 +76,12 @@ html_theme_options = {
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = []
 
-html_sidebars = { '**': ['about.html', 'navigation.html', 'sidebarlinks.html'] }
+html_sidebars = { '**': ['about.html', 'navigation.html'] }
 
 html_show_sourcelink = False
 html_show_sphinx = False
 html_show_copyright = True
 
 intersphinx_mapping = {
-    'python': ('https://docs.python.org/3.5', None),
+    'python': ('https://docs.python.org/3.6', None),
 }
