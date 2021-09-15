@@ -11,7 +11,7 @@ document = OpmlDocument(
     window_top=61,
     window_left=304,
     window_bottom=562,
-    window_right=842,
+    window_right=842
 )
 
 document.add_rss(
