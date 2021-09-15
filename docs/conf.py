@@ -58,10 +58,11 @@ html_theme = 'alabaster'
 
 html_theme_options = {
     'show_powered_by': False,
-    'show_related': True,
     'github_banner': True,
     'github_user': 'EpocDotFr',
-    'github_repo': 'pyopml'
+    'github_repo': 'pyopml',
+    'fixed_sidebar': True,
+    'logo_name': True,
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -69,7 +70,7 @@ html_theme_options = {
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = []
 
-html_sidebars = { '**': ['sidebarlinks.html', 'localtoc.html'] }
+html_sidebars = { '**': ['about.html', 'navigation.html', 'sidebarlinks.html'] }
 
 html_show_sourcelink = False
 html_show_sphinx = False
