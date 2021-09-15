@@ -47,4 +47,4 @@ document.add_link(
     xml_url='http://radio.weblogs.com/0001011/rss.xml'
 )
 
-document.dump('subscriptionList.opml', pretty=True)
+document.dump('subscriptionList.opml', pretty=True, encoding='ISO-8859-1')
