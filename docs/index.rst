@@ -58,7 +58,10 @@ Manipulating OPML documents
 
 It's once you got an :class:`opml.OpmlDocument` instance that things starts to be interesting.
 
-You can **get and set the document's metadata** using the aforementioned class' attributes:
+Getting and setting document's metadata
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Use the :class:`opml.OpmlDocument` instance attributes, Luke:
 
 .. code-block:: python
 
@@ -76,7 +79,10 @@ You can **get and set the document's metadata** using the aforementioned class' 
     print(document.date_created) # 2021-09-14 23:02:52.237540
     print(document.title) # Hendley Associates - Feeds
 
-You can of course **add outlines** using a bunch of methods:
+Adding outlines to the document
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+There a bunch of methods for that:
 
 * :func:`opml.OpmlDocument.add_rss` which adds an URL to a RSS feed:
 
@@ -121,7 +127,7 @@ You can of course **add outlines** using a bunch of methods:
         categories=['/Intelligence/USA', 'intelligence']
     )
 
-* :func:`opml.OpmlDocument.add_outline`, a low-level method used by the aforementioned ones, which can add anything:
+* :func:`opml.OpmlDocument.add_outline`, a low-level method used by all the aforementioned ones, which can add any outline:
 
 .. code-block:: python
 
@@ -129,9 +135,12 @@ You can of course **add outlines** using a bunch of methods:
 
     document = OpmlDocument()
 
-    document.add_outline('The Campus')
+    document.add_outline('Codename: The Campus')
 
-You can **append outlines to others**, in a tree-like fashion:
+Creating outlines trees
+^^^^^^^^^^^^^^^^^^^^^^^
+
+The aforementioned methods all returns references to :class:`opml.OpmlOutline` instances that have just been created. This allows us to append outlines to others:
 
 .. todo::
 
