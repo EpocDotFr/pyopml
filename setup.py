@@ -15,7 +15,7 @@ REQUIRES_PYTHON = '>=3.6.0'
 VERSION = __version__
 
 REQUIRED = [
-    'lxml',
+    'lxml>=4.6',
 ]
 
 EXTRAS = {}

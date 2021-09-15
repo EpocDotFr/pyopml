@@ -36,7 +36,6 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.autosectionlabel',
     'sphinx.ext.todo',
-    'sphinx_togglebutton',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
