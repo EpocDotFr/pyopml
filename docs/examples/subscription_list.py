@@ -14,37 +14,34 @@ document = OpmlDocument(
     window_right=842,
 )
 
-document.add_link(
+document.add_rss(
     'CNET News.com',
+    'http://news.com.com/2547-1_3-0-5.xml',
     description='Tech news and business reports by CNET News.com. Focused on information technology, core topics include computers, hardware, software, networking, and Internet media.',
     html_url='http://news.com.com/',
     language='unknown',
     title='CNET News.com',
-    type='rss',
-    version='RSS2',
-    xml_url='http://news.com.com/2547-1_3-0-5.xml'
+    version='RSS2'
 )
 
-document.add_link(
+document.add_rss(
     'washingtonpost.com - Politics',
+    'http://www.washingtonpost.com/wp-srv/politics/rssheadlines.xml',
     description='Politics',
     html_url='http://www.washingtonpost.com/wp-dyn/politics?nav=rss_politics',
     language='unknown',
     title='washingtonpost.com - Politics',
-    type='rss',
-    version='RSS2',
-    xml_url='http://www.washingtonpost.com/wp-srv/politics/rssheadlines.xml'
+    version='RSS2'
 )
 
-document.add_link(
+document.add_rss(
     'Scobleizer: Microsoft Geek Blogger',
+    'http://radio.weblogs.com/0001011/rss.xml',
     description='Robert Scoble\'s look at geek and Microsoft life.',
     html_url='http://radio.weblogs.com/0001011/',
     language='unknown',
     title='Scobleizer: Microsoft Geek Blogger',
-    type='rss',
-    version='RSS2',
-    xml_url='http://radio.weblogs.com/0001011/rss.xml'
+    version='RSS2'
 )
 
 document.dump('subscriptionList.opml', pretty=True, encoding='ISO-8859-1')
