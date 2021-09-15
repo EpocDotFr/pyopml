@@ -24,7 +24,41 @@ Already knows some of the argument's values? Just pass them:
         owner_email='gerry@hendley-associates.com'
     )
 
-Continue reading to learn about what you can do.
+Unserializing OPML documents
+----------------------------
+
+You may not want to create OPML 2.0 documents from scratch. PyOPML allows to unserialize existing ones instead, by providing two class methods:
+
+* :func:`opml.OpmlDocument.load` which unserializes a document from a filename or a file-like object:
+
+.. code-block:: python
+
+    from opml import OpmlDocument
+
+    document = OpmlDocument.load('hendley_associates.opml')
+
+    # Or:
+
+    with open('hendley_associates.opml', 'r') as f:
+        document = OpmlDocument.load(f)
+
+* :func:`opml.OpmlDocument.loads` which unserializes a document from a string:
+
+.. code-block:: python
+
+    from opml import OpmlDocument
+
+    document_as_string = """<?xml version='1.0' encoding='UTF-8'?>
+    <opml version="2.0">
+      <head>
+        <docs>http://opml.org/spec2.opml</docs>
+      </head>
+      <body>
+        <outline text="Hendley Associates - External Operations" type="rss" xmlUrl="https://hendley-associates.com/feeds/extops.rss" language="en_US" version="RSS2" />
+      </body>
+    </opml>"""
+
+    document = OpmlDocument.loads(document_as_string)
 
 Manipulating OPML documents
 ---------------------------
@@ -83,7 +117,7 @@ There a bunch of methods for that:
     document.add_link(
         'Jack Ryan re-elected for second mandate',
         'https://hendley-associates.com/articles/usa/2021/08/02/jack-ryan-re-elected-second-mandate.html',
-        language='en'
+        language='en_US'
     )
 
 * :func:`opml.OpmlDocument.add_include` which points to another OPML 2.0 file:
@@ -108,39 +142,112 @@ There a bunch of methods for that:
 
     document = OpmlDocument()
 
-    document.add_outline('Codename: The Campus')
+    document.add_outline('Intelligence Agencies Feeds')
+
+Getting and setting outline's data
+**********************************
+
+The aforementioned methods all returns references to :class:`opml.OpmlOutline` instances that have just been created. Again, use the attributes, Luke:
+
+.. code-block:: python
+
+    from opml import OpmlDocument
+
+    document = OpmlDocument()
+
+    feed = document.add_rss(
+        'Hendley Associates - External Operations',
+        'https://hendley-associates.com/feeds/extops.rss',
+        version='RSS2',
+        created=datetime.now()
+    )
+
+    print(feed.language) # None
+    print(feed.categories) # []
+
+    feed.language = 'en_US'
+    feed.categories.append('/Hendley Associates/EXTOPS')
+
+    print(feed.language) # en_US
+    print(feed.categories) # ['/Hendley Associates/EXTOPS']
 
 Creating outlines trees
 ***********************
 
-The aforementioned methods all returns references to :class:`opml.OpmlOutline` instances that have just been created. This allows us to append outlines to others:
+:class:`opml.OpmlOutline` instances themselves shares the same aforementioned methods, which allows us to append outlines to another in a tree-like fashion:
 
-.. todo::
+.. code-block:: python
 
-    Document.
+    from opml import OpmlDocument
+
+    document = OpmlDocument()
+
+    campus = document.add_outline('The Campus')
+
+    campus_active = campus.add_outline('Active Duty')
+
+    campus_active.add_link(
+        'John Clark',
+        'https://jackryan.fandom.com/wiki/John_Clark',
+        language='en_US'
+    )
+
+    campus_active.add_link(
+        'Jack Ryan, Jr.',
+        'https://jackryan.fandom.com/wiki/Jack_Ryan,_Jr.',
+        language='en_US'
+    )
+
+    campus_kia = campus.add_outline('KIA')
+
+    campus_kia.add_link(
+        'Brian Caruso',
+        'https://jackryan.fandom.com/wiki/Brian_Caruso',
+        language='en_US'
+    )
+
+    campus_kia.add_link(
+        'Sam Driscoll',
+        'https://jackryan.fandom.com/wiki/Sam_Driscoll',
+        language='en_US'
+    )
 
 Serializing OPML documents
 --------------------------
 
-.. todo::
+Finally, you'll want to save OPML 2.0 documents you created or manipulated. PyOPML provides two methods:
 
-    Document.
+* :func:`opml.OpmlDocument.dump` which serializes the document to a filename or a file-like object:
 
-Unserializing OPML documents
-----------------------------
+.. code-block:: python
 
-.. todo::
+    from opml import OpmlDocument
 
-    Document.
+    document = OpmlDocument()
+    document.title = 'Hendley Associates Feed'
+    document.date_created = datetime.now()
+    document.owner_id = 'https://hendley-associates.com'
+    document.owner_name = 'Gerry Hendley'
+    document.owner_email = 'gerry@hendley-associates.com'
 
-Full examples
------------------
+    document.dump('hendley_associates.opml', pretty=True)
 
-Here's Python implementations of examples as shown on the `official OPML site <http://opml.org/spec2.opml#1629043023000>`__:
+    # Or:
 
-* http://hosting.opml.org/dave/spec/subscriptionList.opml
+    with open('hendley_associates.opml', 'w') as f:
+        document.dump(f, pretty=True)
 
-.. toggle::
+* :func:`opml.OpmlDocument.dumps` which serializes the document to a string:
 
-    .. include:: examples/subscription_list.py
-        :code: python
+.. code-block:: python
+
+    from opml import OpmlDocument
+
+    document = OpmlDocument()
+    document.title = 'Hendley Associates Feed'
+    document.date_created = datetime.now()
+    document.owner_id = 'https://hendley-associates.com'
+    document.owner_name = 'Gerry Hendley'
+    document.owner_email = 'gerry@hendley-associates.com'
+
+    print(document.dumps()) # <?xml version='1.0' encoding='UTF-8'?>\n<opml version="2.0">...

@@ -70,36 +70,34 @@ class OpmlDocument(Outlinable):
         self.window_bottom = kvargs.get('window_bottom')
         self.window_right = kvargs.get('window_right')
 
-    def dumps(self, pretty=False, encoding='UTF-8', xml_declaration=True):
+    def dumps(self, pretty=False, encoding='UTF-8'):
         """Serialize this document to a string.
 
         :raises ValueError:
         :param bool pretty: Whether to pretty print the outputted XML code or not
         :param str encoding: The encoding to use. Will also define the XML's encoding declaration
-        :param bool xml_declaration: Whether to define the XML's encoding declaration or not
         :rtype: str
         """
         return etree.tostring(
             self.build_tree(),
             pretty_print=pretty,
             encoding=encoding,
-            xml_declaration=xml_declaration
-        )
+            xml_declaration=True
+        ).decode(encoding)
 
-    def dump(self, fp, pretty=False, encoding='UTF-8', xml_declaration=True):
+    def dump(self, fp, pretty=False, encoding='UTF-8'):
         """Serialize this document to a filename or file-like object.
 
         :raises ValueError:
         :param fp: A filename or file-like object
         :param bool pretty: Whether to pretty print the outputted XML code or not
         :param str encoding: The encoding to use. Will also define the XML's encoding declaration
-        :param bool xml_declaration: Whether to define the XML's encoding declaration or not
         """
         etree.ElementTree(self.build_tree()).write(
             fp,
             pretty_print=pretty,
             encoding=encoding,
-            xml_declaration=xml_declaration
+            xml_declaration=True
         )
 
     @classmethod
