@@ -86,9 +86,9 @@ class OpmlDocument(Outlinable):
         )
 
     def dump(self, fp, pretty=False, encoding='UTF-8', xml_declaration=True):
-        """Serialize this document to a file-like object or a filename.
+        """Serialize this document to a filename or file-like object.
 
-        :param fp: A file-like object or a filename
+        :param fp: A filename or file-like object
         :param bool pretty: Whether to pretty print the outputted XML code or not
         :param str encoding: The encoding to use. Will also define the XML's encoding declaration
         :param bool xml_declaration: Whether to define the XML's encoding declaration or not
@@ -113,9 +113,9 @@ class OpmlDocument(Outlinable):
 
     @classmethod
     def load(cls, fp):
-        """Unserialize OPML 2.0 data from file.
+        """Unserialize OPML 2.0 data from a filename or file-like object.
 
-        :param fp: A file-like object or a filename to an OPML file
+        :param fp: A filename or file-like object
         :rtype: opml.OpmlDocument
         """
         return cls.unbuild_tree(
