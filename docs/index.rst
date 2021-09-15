@@ -133,12 +133,6 @@ You can of course **add outlines** using a bunch of methods:
 
 You can **append outlines to others**, in a tree-like fashion:
 
-.. code-block:: python
-
-    from opml import OpmlDocument
-
-    document = OpmlDocument()
-    
 .. todo::
 
     Document.
@@ -162,9 +156,12 @@ Complete examples
 
 Here's Python implementations of examples as shown on the `official OPML site <http://opml.org/spec2.opml#1629043023000>`__:
 
-.. todo::
+**<http://hosting.opml.org/dave/spec/subscriptionList.opml>`__**
 
-    Document.
+.. toggle::
+
+    .. include:: examples/subscription_list.py
+        :code: python
 
 API docs
 --------
