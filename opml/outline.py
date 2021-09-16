@@ -1,4 +1,5 @@
 from email.utils import format_datetime as datetime_to_rfc2822, parsedate_to_datetime as rfc2822_to_datetime
+from .exceptions import OpmlReadError, OpmlWriteError
 from .outlinable import Outlinable
 from lxml import etree
 
@@ -80,7 +81,7 @@ class OpmlOutline(Outlinable):
         text = node.get('text')
 
         if not text:
-            raise ValueError('Required outline attribute "text" not found')
+            raise OpmlReadError('Required outline attribute "text" not found')
 
         outline = cls(text)
 
@@ -150,19 +151,19 @@ class OpmlOutline(Outlinable):
 
     def build_tree(self):
         if not self.text:
-            raise ValueError('"text" attribute is required for all outlines')
+            raise OpmlWriteError('"text" attribute is required for all outlines')
 
         node = etree.Element('outline', text=self.text)
 
         if self.type:
             if self.type == 'rss':
                 if not self.xml_url:
-                    raise ValueError('"xml_url" attribute is required for outlines of type "rss"')
+                    raise OpmlWriteError('"xml_url" attribute is required for outlines of type "rss" (outline: "{}")'.format(self.text))
 
                 if self.version and self.version not in ('RSS', 'RSS1', 'RSS2', 'scriptingNews'):
-                    raise ValueError('"version" attribute must be one of "RSS", "RSS1", "RSS2" or "scriptingNews" if set for outlines of type "rss"')
+                    raise OpmlWriteError('"version" attribute must be one of "RSS", "RSS1", "RSS2" or "scriptingNews" if set for outlines of type "rss" (outline: "{}")'.format(self.text))
             elif self.type in ('link', 'include') and not self.url:
-                raise ValueError('"url" attribute is required for outlines of type "link" and "include"')
+                raise OpmlWriteError('"url" attribute is required for outlines of type "link" and "include" (outline: "{}")'.format(self.text))
 
             node.set('type', self.type)
 

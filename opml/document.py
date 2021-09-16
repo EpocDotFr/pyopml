@@ -1,4 +1,5 @@
 from email.utils import format_datetime as datetime_to_rfc2822, parsedate_to_datetime as rfc2822_to_datetime
+from .exceptions import OpmlReadError
 from .outlinable import Outlinable
 from lxml import etree
 
@@ -73,7 +74,7 @@ class OpmlDocument(Outlinable):
     def dumps(self, pretty=False, encoding='UTF-8'):
         """Serialize this document to a string.
 
-        :raises ValueError:
+        :raises opml.exceptions.OpmlWriteError:
         :param bool pretty: Whether to pretty print the outputted XML code or not
         :param str encoding: The encoding to use. Will also define the XML's encoding declaration
         :rtype: str
@@ -88,7 +89,7 @@ class OpmlDocument(Outlinable):
     def dump(self, fp, pretty=False, encoding='UTF-8'):
         """Serialize this document to a filename or file-like object.
 
-        :raises ValueError:
+        :raises opml.exceptions.OpmlWriteError:
         :param fp: A filename or file-like object
         :param bool pretty: Whether to pretty print the outputted XML code or not
         :param str encoding: The encoding to use. Will also define the XML's encoding declaration
@@ -104,7 +105,7 @@ class OpmlDocument(Outlinable):
     def loads(cls, s):
         """Unserialize OPML 2.0 data from a string.
 
-        :raises ValueError:
+        :raises opml.exceptions.OpmlReadError:
         :param str s: The string to unserialize from
         :rtype: opml.OpmlDocument
         """
@@ -116,7 +117,7 @@ class OpmlDocument(Outlinable):
     def load(cls, fp):
         """Unserialize OPML 2.0 data from a filename or file-like object.
 
-        :raises ValueError:
+        :raises opml.exceptions.OpmlReadError:
         :param fp: A filename or file-like object
         :rtype: opml.OpmlDocument
         """
@@ -129,16 +130,16 @@ class OpmlDocument(Outlinable):
         version = root.get('version')
 
         if not version:
-            raise ValueError('"version" attribute not found in root node')
+            raise OpmlReadError('"version" attribute not found in root node')
         elif version != '2.0':
-            raise ValueError('This package only supports OPML 2.0 specification')
+            raise OpmlReadError('This package only supports OPML 2.0 specification')
 
         document = cls()
 
         head = root.find('head')
 
         if head is None:
-            raise ValueError('"head" node not found')
+            raise OpmlReadError('"head" node not found')
 
         title = head.findtext('title')
 
@@ -203,7 +204,7 @@ class OpmlDocument(Outlinable):
         body = root.find('body')
 
         if body is None:
-            raise ValueError('"body" node not found')
+            raise OpmlReadError('"body" node not found')
 
         document.unbuild_outlines_tree(body)
 
