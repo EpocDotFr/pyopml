@@ -20,7 +20,7 @@ class Outlinable:
         :param list categories: A list of `RSS 2.0 <https://validator.w3.org/feed/docs/rss2.html#ltcategorygtSubelementOfLtitemgt>`__ categories. To represent a "tag", the category string should contain no slashes
         :rtype: opml.OpmlOutline
         """
-        from .outline import OpmlOutline
+        from opml.outline import OpmlOutline
 
         outline = OpmlOutline(text, **kvargs)
 
@@ -32,12 +32,12 @@ class Outlinable:
         """Create a new outline of type "rss", append it to this object's outlines and return it.
 
         :param str text: Text of the outline
-        :param str xml_url: URL to the feed when ``type`` is ``rss``
+        :param str xml_url: URL to the feed
         :param str description: Top-level description element from the feed (if this outline is part of a subscription list)
         :param str html_url: Top-level link element from the feed (if this outline is part of a subscription list)
         :param str language: Top-level language element from the feed (if this outline is part of a subscription list)
         :param str title: Top-level title element from the feed (if this outline is part of a subscription list)
-        :param str version: RSS version when ``type`` is ``rss``. One of ``RSS``, ``RSS1``, ``RSS2`` or ``scriptingNews``
+        :param str version: RSS version. One of ``RSS``, ``RSS1``, ``RSS2`` or ``scriptingNews``
         :param bool is_comment: Whether the outline is commented or not
         :param bool is_breakpoint: Whether a breakpoint is set on this outline
         :param datetime.datetime created: Date-time that the outline node was created
@@ -63,7 +63,7 @@ class Outlinable:
         """Create a new outline of type "link", append it to this object's outlines and return it.
 
         :param str text: Text of the outline
-        :param str url: An URL to a web page when ``type`` is ``link``
+        :param str url: An URL to a web page
         :param bool is_comment: Whether the outline is commented or not
         :param bool is_breakpoint: Whether a breakpoint is set on this outline
         :param datetime.datetime created: Date-time that the outline node was created
@@ -84,7 +84,7 @@ class Outlinable:
         """Create a new outline of type "include", append it to this object's outlines and return it.
 
         :param str text: Text of the outline
-        :param str url: An URL to a web page when ``type`` is ``link``
+        :param str url: An URL to an OPML document
         :param bool is_comment: Whether the outline is commented or not
         :param bool is_breakpoint: Whether a breakpoint is set on this outline
         :param datetime.datetime created: Date-time that the outline node was created
@@ -106,7 +106,7 @@ class Outlinable:
             parent.append(outline.build_tree())
 
     def unbuild_outlines_tree(self, parent):
-        from .outline import OpmlOutline
+        from opml.outline import OpmlOutline
 
         for node in parent.iterchildren(tag='outline'):
             self.outlines.append(

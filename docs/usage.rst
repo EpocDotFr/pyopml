@@ -48,8 +48,7 @@ You may not want to create OPML 2.0 documents from scratch. PyOPML allows to uns
 
     from opml import OpmlDocument
 
-    document_as_string = """<?xml version='1.0' encoding='UTF-8'?>
-    <opml version="2.0">
+    document_as_string = """<opml version="2.0">
       <head>
         <docs>http://opml.org/spec2.opml</docs>
       </head>
@@ -59,6 +58,10 @@ You may not want to create OPML 2.0 documents from scratch. PyOPML allows to uns
     </opml>"""
 
     document = OpmlDocument.loads(document_as_string)
+
+.. important::
+
+    `lxml <https://lxml.de/>`__ (used internally) will not parse the given string if it's starting with an encoding declaration (e.g ``<?xml version='1.0' encoding='UTF-8'?>``).
 
 Manipulating OPML documents
 ---------------------------

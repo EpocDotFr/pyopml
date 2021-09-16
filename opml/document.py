@@ -1,6 +1,6 @@
 from email.utils import format_datetime as datetime_to_rfc2822, parsedate_to_datetime as rfc2822_to_datetime
-from .exceptions import OpmlReadError
-from .outlinable import Outlinable
+from opml.exceptions import OpmlReadError
+from opml.outlinable import Outlinable
 from lxml import etree
 
 
@@ -104,6 +104,12 @@ class OpmlDocument(Outlinable):
     @classmethod
     def loads(cls, s):
         """Unserialize OPML 2.0 data from a string.
+
+        .. important::
+
+            `lxml <https://lxml.de/>`__ (used internally) will not parse the
+            given string if it's starting with an encoding declaration (e.g
+            ``<?xml version='1.0' encoding='UTF-8'?>``).
 
         :raises opml.exceptions.OpmlReadError:
         :param str s: The string to unserialize from
@@ -237,22 +243,24 @@ class OpmlDocument(Outlinable):
             etree.SubElement(head, 'ownerId').text = self.owner_id
 
         if self.expansion_state:
-            etree.SubElement(head, 'expansionState').text = ','.join(self.expansion_state)
+            etree.SubElement(head, 'expansionState').text = ','.join(
+                [str(state) for state in self.expansion_state]
+            )
 
         if self.vert_scroll_state:
-            etree.SubElement(head, 'vertScrollState').text = self.vert_scroll_state
+            etree.SubElement(head, 'vertScrollState').text = str(self.vert_scroll_state)
 
         if self.window_top:
-            etree.SubElement(head, 'windowTop').text = self.window_top
+            etree.SubElement(head, 'windowTop').text = str(self.window_top)
 
         if self.window_left:
-            etree.SubElement(head, 'windowLeft').text = self.window_left
+            etree.SubElement(head, 'windowLeft').text = str(self.window_left)
 
         if self.window_bottom:
-            etree.SubElement(head, 'windowBottom').text = self.window_bottom
+            etree.SubElement(head, 'windowBottom').text = str(self.window_bottom)
 
         if self.window_right:
-            etree.SubElement(head, 'windowRight').text = self.window_right
+            etree.SubElement(head, 'windowRight').text = str(self.window_right)
 
         etree.SubElement(head, 'docs').text = 'http://opml.org/spec2.opml'
 

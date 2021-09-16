@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<opml version="2.0">
+  <head>
+    <title>Hendley Associates Feed</title>
+    <dateCreated>Thu, 16 Sep 2021 20:07:59 -0000</dateCreated>
+    <dateModified>Thu, 16 Sep 2021 20:07:59 -0000</dateModified>
+    <ownerName>Gerry Hendley</ownerName>
+    <ownerEmail>gerry@hendley-associates.com</ownerEmail>
+    <ownerId>https://hendley-associates.com</ownerId>
+    <expansionState>2,5</expansionState>
+    <vertScrollState>4</vertScrollState>
+    <windowTop>50</windowTop>
+    <windowLeft>50</windowLeft>
+    <windowBottom>50</windowBottom>
+    <windowRight>50</windowRight>
+    <docs>http://opml.org/spec2.opml</docs>
+  </head>
+  <body>
+    <outline text="Feeds">
+      <outline text="CIA News Feed" type="rss" created="Thu, 16 Sep 2021 20:07:59 -0000" xmlUrl="https://hendley-associates.com/feeds/cia.rss" description="CIA News Feed" htmlUrl="https://hendley-associates.com/news/cia" language="en_US" title="CIA News Feed" version="RSS2" category="/Intelligence/USA,intelligence"/>
+    </outline>
+    <outline text="Links">
+      <outline text="Jack Ryan re-elected for second mandate" type="link" created="Thu, 16 Sep 2021 20:07:59 -0000" url="https://hendley-associates.com/articles/usa/2021/08/02/jack-ryan-re-elected-second-mandate.html" category="/Intelligence/USA,intelligence"/>
+    </outline>
+    <outline text="Includes">
+      <outline text="All Feeds" type="include" created="Thu, 16 Sep 2021 20:07:59 -0000" url="https://hendley-associates.com/feeds.opml" category="/Intelligence/USA,intelligence"/>
+    </outline>
+  </body>
+</opml>
