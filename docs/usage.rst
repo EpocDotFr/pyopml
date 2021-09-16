@@ -29,7 +29,7 @@ Unserializing OPML documents
 
 You may not want to create OPML 2.0 documents from scratch. PyOPML allows to unserialize existing ones instead, by providing two class methods:
 
-* :func:`opml.OpmlDocument.load` which unserializes a document from a filename or a file-like object:
+* :meth:`opml.OpmlDocument.load` which unserializes a document from a filename or a file-like object:
 
 .. code-block:: python
 
@@ -42,7 +42,7 @@ You may not want to create OPML 2.0 documents from scratch. PyOPML allows to uns
     with open('hendley_associates.opml', 'r') as f:
         document = OpmlDocument.load(f)
 
-* :func:`opml.OpmlDocument.loads` which unserializes a document from a string:
+* :meth:`opml.OpmlDocument.loads` which unserializes a document from a string:
 
 .. code-block:: python
 
@@ -91,7 +91,7 @@ Adding outlines to the document
 
 There a bunch of methods for that:
 
-* :func:`opml.OpmlDocument.add_rss` which adds an URL to a RSS feed:
+* :meth:`opml.OpmlDocument.add_rss` which adds an URL to a RSS feed:
 
 .. code-block:: python
 
@@ -106,7 +106,7 @@ There a bunch of methods for that:
         created=datetime.now()
     )
 
-* :func:`opml.OpmlDocument.add_link` which adds an URL:
+* :meth:`opml.OpmlDocument.add_link` which adds an URL:
 
 .. code-block:: python
 
@@ -119,7 +119,7 @@ There a bunch of methods for that:
         'https://hendley-associates.com/articles/usa/2021/08/02/jack-ryan-re-elected-second-mandate.html'
     )
 
-* :func:`opml.OpmlDocument.add_include` which points to another OPML 2.0 file:
+* :meth:`opml.OpmlDocument.add_include` which points to another OPML 2.0 file:
 
 .. code-block:: python
 
@@ -133,7 +133,7 @@ There a bunch of methods for that:
         categories=['/Intelligence/USA', 'intelligence']
     )
 
-* :func:`opml.OpmlDocument.add_outline`, a low-level method used by all the aforementioned ones, which can add any outline:
+* :meth:`opml.OpmlDocument.add_outline`, a low-level method used by all the aforementioned ones, which can add any outline:
 
 .. code-block:: python
 
@@ -212,7 +212,7 @@ Serializing OPML documents
 
 Finally, you'll want to save OPML 2.0 documents you created or manipulated. PyOPML provides two methods:
 
-* :func:`opml.OpmlDocument.dump` which serializes the document to a filename or a file-like object:
+* :meth:`opml.OpmlDocument.dump` which serializes the document to a filename or a file-like object:
 
 .. code-block:: python
 
@@ -232,7 +232,7 @@ Finally, you'll want to save OPML 2.0 documents you created or manipulated. PyOP
     with open('hendley_associates.opml', 'w') as f:
         document.dump(f, pretty=True)
 
-* :func:`opml.OpmlDocument.dumps` which serializes the document to a string:
+* :meth:`opml.OpmlDocument.dumps` which serializes the document to a string:
 
 .. code-block:: python
 
@@ -246,3 +246,7 @@ Finally, you'll want to save OPML 2.0 documents you created or manipulated. PyOP
     document.owner_email = 'gerry@hendley-associates.com'
 
     print(document.dumps()) # <?xml version='1.0' encoding='UTF-8'?>\n<opml version="2.0">...
+
+.. tip::
+
+    :class:`opml.OpmlDocument` implements :py:meth:`object.__str__`, which have the same behavior as :meth:`opml.OpmlDocument.dumps` except the encoding is forced to UTF-8 and pretty-print is enabled by default.

@@ -256,3 +256,6 @@ class OpmlDocument(Outlinable):
         self.build_outlines_tree(body)
 
         return root
+
+    def __str__(self):
+        return self.dumps(pretty=True)
