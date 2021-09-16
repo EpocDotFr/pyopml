@@ -116,8 +116,7 @@ There a bunch of methods for that:
 
     document.add_link(
         'Jack Ryan re-elected for second mandate',
-        'https://hendley-associates.com/articles/usa/2021/08/02/jack-ryan-re-elected-second-mandate.html',
-        language='en_US'
+        'https://hendley-associates.com/articles/usa/2021/08/02/jack-ryan-re-elected-second-mandate.html'
     )
 
 * :func:`opml.OpmlDocument.add_include` which points to another OPML 2.0 file:
@@ -188,28 +187,24 @@ Creating outlines trees
 
     campus_active.add_link(
         'John Clark',
-        'https://jackryan.fandom.com/wiki/John_Clark',
-        language='en_US'
+        'https://jackryan.fandom.com/wiki/John_Clark'
     )
 
     campus_active.add_link(
         'Jack Ryan, Jr.',
-        'https://jackryan.fandom.com/wiki/Jack_Ryan,_Jr.',
-        language='en_US'
+        'https://jackryan.fandom.com/wiki/Jack_Ryan,_Jr.'
     )
 
     campus_kia = campus.add_outline('KIA')
 
     campus_kia.add_link(
         'Brian Caruso',
-        'https://jackryan.fandom.com/wiki/Brian_Caruso',
-        language='en_US'
+        'https://jackryan.fandom.com/wiki/Brian_Caruso'
     )
 
     campus_kia.add_link(
         'Sam Driscoll',
-        'https://jackryan.fandom.com/wiki/Sam_Driscoll',
-        language='en_US'
+        'https://jackryan.fandom.com/wiki/Sam_Driscoll'
     )
 
 Serializing OPML documents
