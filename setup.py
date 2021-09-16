@@ -18,7 +18,12 @@ REQUIRED = [
     'lxml>=4.6',
 ]
 
-EXTRAS = {}
+EXTRAS = {
+    'dev': {
+        'Sphinx',
+        'pytest',
+    }
+}
 
 here = os.path.abspath(os.path.dirname(__file__))
 
