@@ -127,6 +127,9 @@ class OpmlDocument(Outlinable):
 
     @classmethod
     def unbuild_tree(cls, root):
+        if root.tag != 'opml':
+            raise OpmlReadError('Not an OPML document')
+
         version = root.get('version')
 
         if not version:

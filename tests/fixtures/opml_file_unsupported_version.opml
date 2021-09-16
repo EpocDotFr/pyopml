@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<opml version="1.0">
+  <head>
+    <title>Hendley Associates Feed</title>
+    <dateCreated>Wed, 15 Sep 2021 20:05:37 -0000</dateCreated>
+    <ownerName>Gerry Hendley</ownerName>
+    <ownerEmail>gerry@hendley-associates.com</ownerEmail>
+  </head>
+  <body>
+    <outline text="Feeds">
+      <outline text="CIA News Feed"/>
+    </outline>
+    <outline text="Links">
+      <outline text="Jack Ryan re-elected for second mandate"/>
+    </outline>
+    <outline text="All Feeds"/>
+  </body>
+</opml>
