@@ -3,7 +3,7 @@ PyOPML documentation
 
 Welcome! This documentation is about PyOPML, a Python package meant to read, manipulate and write `OPML 2.0 <http://opml.org/spec2.opml>`__ files.
 
-|pyversion| |pypiv| |pypil|
+|pyversion| |pypiv| |tests| |pypil|
 
 Prerequisites
 -------------
@@ -36,4 +36,5 @@ User's Guide
 
 .. |pyversion| image:: https://img.shields.io/pypi/pyversions/pyopml.svg
 .. |pypiv| image:: https://img.shields.io/pypi/v/pyopml.svg
+.. |tests| image:: https://img.shields.io/github/workflow/status/EpocDotFr/pyopml/tests
 .. |pypil| image:: https://img.shields.io/pypi/l/pyopml.svg
