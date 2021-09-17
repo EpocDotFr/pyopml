@@ -12,6 +12,25 @@ Everything you need to know is located [here](https://epocdotfr.github.io/pyopml
 
 See [here](https://github.com/EpocDotFr/pyopml/releases).
 
+## Development
+
+**Getting source code, installing the package as well as its dev packages:**
+
+  1. Clone the repository
+  2. From its root directory, run: `pip install --editable .[dev]`
+
+**Running tests:**
+
+From the root directory, run `pytest`. They will automatically be all discovered and ran.
+
+**Building docs:**
+
+From the `docs` directory, run `make.bat html` on Windows or `make html` on Linux.
+
+**Publishing the package:**
+
+From the root directory: run `python setup.py upload`. This will create a git tag and publish on PyPI.
+
 ## End words
 
 If you have questions or problems, you can [submit an issue](https://github.com/EpocDotFr/pyopml/issues).
