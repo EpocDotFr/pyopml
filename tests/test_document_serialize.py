@@ -102,7 +102,7 @@ def run_write_error_suite(document, tmp_path, error_message):
         document.dump(filename, pretty=True)
 
     with pytest.raises(OpmlWriteError, match=error_message):
-        with open(filename, 'w') as f:
+        with open(filename, 'wb') as f:
             document.dump(f, pretty=True)
 
 
@@ -171,7 +171,7 @@ def test_ok(document_with_everything, tmp_path):
 
     assert target_opml_document_as_string == valid_opml_document_as_string
 
-    with open(filename, 'w') as f:
+    with open(filename, 'wb') as f:
         document_with_everything.dump(f, pretty=True)
 
     with open(filename, 'r') as f:

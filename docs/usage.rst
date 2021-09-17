@@ -229,7 +229,7 @@ Finally, you'll want to save OPML 2.0 documents you created or manipulated. PyOP
 
     # Or:
 
-    with open('hendley_associates.opml', 'w') as f:
+    with open('hendley_associates.opml', 'wb') as f:
         document.dump(f, pretty=True)
 
 * :meth:`opml.OpmlDocument.dumps` which serializes the document to a string:
