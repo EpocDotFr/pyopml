@@ -17,7 +17,7 @@ See [here](https://github.com/EpocDotFr/pyopml/releases).
 **Getting source code, installing the package as well as its dev packages:**
 
   1. Clone the repository
-  2. From its root directory, run: `pip install --editable .[dev]`
+  2. From the root directory, run: `pip install --editable .[dev]`
 
 **Running tests:**
 
