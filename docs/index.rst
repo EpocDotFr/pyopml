@@ -34,6 +34,6 @@ User's Guide
    usage
    api
 
-.. |pyversion| image:: https://img.shields.io/pypi/pyversions/pyopml.svg?link=https://pypi.python.org/pypi/pyopml
-.. |pypiv| image:: https://img.shields.io/pypi/v/pyopml.svg?link=https://pypi.python.org/pypi/pyopml
-.. |pypil| image:: https://img.shields.io/pypi/l/pyopml.svg?link=https://github.com/EpocDotFr/pyopml/blob/master/LICENSE.md
+.. |pyversion| image:: https://img.shields.io/pypi/pyversions/pyopml.svg
+.. |pypiv| image:: https://img.shields.io/pypi/v/pyopml.svg
+.. |pypil| image:: https://img.shields.io/pypi/l/pyopml.svg
