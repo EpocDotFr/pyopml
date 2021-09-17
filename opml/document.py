@@ -105,18 +105,12 @@ class OpmlDocument(Outlinable):
     def loads(cls, s):
         """Unserialize OPML 2.0 data from a string.
 
-        .. important::
-
-            `lxml <https://lxml.de/>`__ (used internally) will not parse the
-            given string if it's starting with an encoding declaration (e.g
-            ``<?xml version='1.0' encoding='UTF-8'?>``).
-
         :raises opml.exceptions.OpmlReadError:
         :param str s: The string to unserialize from
         :rtype: opml.OpmlDocument
         """
         return cls.unbuild_tree(
-            etree.fromstring(s)
+            etree.fromstring(s.encode())
         )
 
     @classmethod

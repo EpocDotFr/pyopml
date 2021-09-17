@@ -4,15 +4,9 @@ import pytest
 import re
 
 
-def opml_document_to_string(filename):
-    with open(filename, 'r') as f:
-        file_as_string = '\n'.join(f.readlines()[1:])
-
-    return file_as_string
-
-
 def run_read_error_suite(filename, error_message):
-    file_as_string = opml_document_to_string(filename)
+    with open(filename, 'r') as f:
+        file_as_string = f.read()
 
     with pytest.raises(OpmlReadError, match=error_message):
         OpmlDocument.loads(file_as_string)
@@ -98,7 +92,8 @@ def test_include_outline_missing_url():
 def test_valid():
     filename = 'tests/fixtures/valid.opml'
 
-    file_as_string = opml_document_to_string(filename)
+    with open(filename, 'r') as f:
+        file_as_string = f.read()
 
     assert isinstance(OpmlDocument.loads(file_as_string), OpmlDocument)
 
