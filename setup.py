@@ -1,4 +1,3 @@
-from opml import __version__
 from shutil import rmtree
 import io
 import os
@@ -12,7 +11,7 @@ URL = 'https://github.com/EpocDotFr/pyopml'
 EMAIL = 'contact.nospam@epoc.nospam.fr'
 AUTHOR = 'Maxime "Epoc" G.'
 REQUIRES_PYTHON = '>=3.6.0'
-VERSION = __version__
+VERSION = '1.0.0'
 
 REQUIRED = [
     'lxml>=4.6',
@@ -65,7 +64,7 @@ class UploadCommand(Command):
         os.system('twine upload dist/*')
 
         self.status('Pushing git tags...')
-        os.system('git tag v{0}'.format(__version__))
+        os.system('git tag v{0}'.format(VERSION))
         os.system('git push --tags')
 
         sys.exit()
@@ -73,7 +72,7 @@ class UploadCommand(Command):
 
 setup(
     name=NAME,
-    version=__version__,
+    version=VERSION,
     description=DESCRIPTION,
     long_description=long_description,
     long_description_content_type='text/markdown',
