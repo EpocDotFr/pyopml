@@ -21,7 +21,9 @@ jobs:
       - name: Install package with dev dependancies
         run: pip install -e .[dev]
       - name: Build docs
-        run: make html
+        run: |
+          cd docs
+          make html
       - name: Checkout gh-pages
         uses: actions/checkout@v2
         with:
