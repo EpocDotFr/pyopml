@@ -31,7 +31,7 @@ jobs:
           ref: 'gh-pages'
       - name: Commit documentation changes
         run: |
-          mv docs/_build/html/* ./
+          cp -r docs/_build/html/* ./
 
           git config user.name github-actions
           git config user.email github-actions@github.com
