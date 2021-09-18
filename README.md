@@ -2,7 +2,7 @@
 
 Python package meant to read, manipulate and write [OPML 2.0](http://opml.org/spec2.opml) files.
 
-![Python versions](https://img.shields.io/pypi/pyversions/pyopml.svg) ![Version](https://img.shields.io/pypi/v/pyopml.svg) ![Tests](https://img.shields.io/github/workflow/status/EpocDotFr/pyopml/tests.svg?label=tests) ![License](https://img.shields.io/pypi/l/pyopml.svg)
+![Python versions](https://img.shields.io/pypi/pyversions/pyopml.svg) ![Version](https://img.shields.io/pypi/v/pyopml.svg) ![Tests](https://github.com/EpocDotFr/pyopml/actions/workflows/tests.yml/badge.svg) ![License](https://img.shields.io/pypi/l/pyopml.svg)
 
 ## Documentation
 
