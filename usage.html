@@ -161,7 +161,7 @@
 <h3>Adding outlines to the document<a class="headerlink" href="#adding-outlines-to-the-document" title="Permalink to this headline">¶</a></h3>
 <p>There a bunch of methods for that:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="api.html#opml.OpmlDocument.add_rss" title="opml.OpmlDocument.add_rss"><code class="xref py py-meth docutils literal notranslate"><span class="pre">opml.OpmlDocument.add_rss()</span></code></a> which adds an URL to a RSS feed:</p></li>
+<li><p><a class="reference internal" href="api.html#opml.OpmlDocument.add_rss" title="opml.OpmlDocument.add_rss"><code class="xref py py-meth docutils literal notranslate"><span class="pre">opml.OpmlDocument.add_rss()</span></code></a> which adds a RSS feed:</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">opml</span> <span class="kn">import</span> <span class="n">OpmlDocument</span>
 
@@ -203,7 +203,7 @@
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><a class="reference internal" href="api.html#opml.OpmlDocument.add_outline" title="opml.OpmlDocument.add_outline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">opml.OpmlDocument.add_outline()</span></code></a>, a low-level method used by all the aforementioned ones, which can add any outline:</p></li>
+<li><p><a class="reference internal" href="api.html#opml.OpmlDocument.add_outline" title="opml.OpmlDocument.add_outline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">opml.OpmlDocument.add_outline()</span></code></a>, a low-level method used by all the aforementioned ones:</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">opml</span> <span class="kn">import</span> <span class="n">OpmlDocument</span>
 
@@ -272,6 +272,7 @@
 <span class="p">)</span>
 </pre></div>
 </div>
+<p>Outlines may contain as many outlines as you’d like.</p>
 </section>
 </section>
 <section id="serializing-opml-documents">
@@ -293,6 +294,8 @@
 
 <span class="c1"># Or:</span>
 
+<span class="c1"># Notice the opening mode: write+binary. lxml (used internally) will</span>
+<span class="c1"># complain if you&#39;re opening the file in text mode.</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;hendley_associates.opml&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">document</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">pretty</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>

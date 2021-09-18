@@ -91,7 +91,7 @@ Adding outlines to the document
 
 There a bunch of methods for that:
 
-* :meth:`opml.OpmlDocument.add_rss` which adds an URL to a RSS feed:
+* :meth:`opml.OpmlDocument.add_rss` which adds a RSS feed:
 
 .. code-block:: python
 
@@ -133,7 +133,7 @@ There a bunch of methods for that:
         categories=['/Intelligence/USA', 'intelligence']
     )
 
-* :meth:`opml.OpmlDocument.add_outline`, a low-level method used by all the aforementioned ones, which can add any outline:
+* :meth:`opml.OpmlDocument.add_outline`, a low-level method used by all the aforementioned ones:
 
 .. code-block:: python
 
@@ -207,6 +207,8 @@ Creating outlines trees
         'https://jackryan.fandom.com/wiki/Sam_Driscoll'
     )
 
+Outlines may contain as many outlines as you'd like.
+
 Serializing OPML documents
 --------------------------
 
@@ -229,6 +231,8 @@ Finally, you'll want to save OPML 2.0 documents you created or manipulated. PyOP
 
     # Or:
 
+    # Notice the opening mode: write+binary. lxml (used internally) will
+    # complain if you're opening the file in text mode.
     with open('hendley_associates.opml', 'wb') as f:
         document.dump(f, pretty=True)
 
