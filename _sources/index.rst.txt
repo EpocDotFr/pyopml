@@ -36,5 +36,5 @@ User's Guide
 
 .. |pyversion| image:: https://img.shields.io/pypi/pyversions/pyopml.svg
 .. |pypiv| image:: https://img.shields.io/pypi/v/pyopml.svg
-.. |tests| image:: https://img.shields.io/github/workflow/status/EpocDotFr/pyopml/tests.svg?label=tests
+.. |tests| image:: https://github.com/EpocDotFr/pyopml/actions/workflows/tests.yml/badge.svg
 .. |pypil| image:: https://img.shields.io/pypi/l/pyopml.svg
