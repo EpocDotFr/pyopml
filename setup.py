@@ -21,6 +21,7 @@ EXTRAS = {
     'dev': {
         'Sphinx',
         'pytest',
+        'twine',
     }
 }
 
