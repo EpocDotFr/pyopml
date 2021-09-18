@@ -29,10 +29,4 @@ From the `docs` directory, run `make.bat html` on Windows or `make html` on Linu
 
 **Publishing the package:**
 
-From the root directory: run `python setup.py upload`. This will create a git tag and publish on PyPI.
-
-## End words
-
-If you have questions or problems, you can [submit an issue](https://github.com/EpocDotFr/pyopml/issues).
-
-You can also submit pull requests. It's open-source man!
+From the root directory, run `python setup.py upload`. This will create a git tag and publish on PyPI.

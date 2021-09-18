@@ -67,6 +67,7 @@ html_theme_options = {
         'PyOPML @ GitHub': 'https://github.com/EpocDotFr/pyopml',
         'PyOPML @ PyPI': 'https://pypi.python.org/pypi/pyopml',
         'Issue Tracker': 'https://github.com/EpocDotFr/pyopml/issues',
+        'Changelog': 'https://github.com/EpocDotFr/pyopml/releases',
     }
 }
 
