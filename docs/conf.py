@@ -76,7 +76,7 @@ html_theme_options = {
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = []
 
-html_sidebars = { '**': ['about.html', 'navigation.html'] }
+html_sidebars = { '**': ['about.html', 'navigation.html', 'searchbox.html'] }
 
 html_show_sourcelink = False
 html_show_sphinx = False
