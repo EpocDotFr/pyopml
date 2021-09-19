@@ -13,17 +13,17 @@ Prerequisites
 Installation
 ------------
 
-The usual way:
+From PyPI:
 
 .. code-block:: console
 
     $ pip install pyopml
 
-The McGyver way, after cloning/downloading this repo:
+Locally, after cloning/downloading the repo:
 
 .. code-block:: console
 
-    $ python setup.py install
+    $ pip install .
 
 User's Guide
 ------------
