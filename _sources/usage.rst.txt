@@ -4,7 +4,7 @@ Usage
 Creating OPML documents
 -----------------------
 
-PyOPML allows you to create OPML 2.0 documents from scratch, which may or may not be :ref:`serialized <Serializing OPML documents>` to a file or as a string afterhand. It all starts by instanciating a new :class:`opml.OpmlDocument` object. None of the constructor's arguments are required, so you could just:
+PyOPML allows you to create OPML 2.0 documents from scratch, which may or may not be :ref:`serialized <Serializing OPML documents>` to a file or as a string afterhand. It all starts by instantiating a new :class:`opml.OpmlDocument` object. None of the constructor's arguments are required, so you could just:
 
 .. code-block:: python
 
