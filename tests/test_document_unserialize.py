@@ -41,6 +41,7 @@ def validate_valid_opml_document(document):
 
     feeds_outline = document.outlines[0]
 
+    assert isinstance(feeds_outline, OpmlOutline)
     assert feeds_outline.text == 'Feeds'
 
     assert len(feeds_outline.outlines) == 1
@@ -63,6 +64,7 @@ def validate_valid_opml_document(document):
 
     links_outline = document.outlines[1]
 
+    assert isinstance(links_outline, OpmlOutline)
     assert links_outline.text == 'Links'
 
     assert len(links_outline.outlines) == 1
@@ -80,6 +82,7 @@ def validate_valid_opml_document(document):
 
     includes_outline = document.outlines[2]
 
+    assert isinstance(includes_outline, OpmlOutline)
     assert includes_outline.text == 'Includes'
 
     assert len(includes_outline.outlines) == 1
