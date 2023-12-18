@@ -2,7 +2,7 @@
 
 > Version 1.1, December 2016
 
-> Copyright (C) 2021 Maxime "Epoc" G.
+> Copyright (C) 2021 Maxime "Epoc" Gross
 
 Everyone is permitted to copy and distribute verbatim or modified
 copies of this license document.
