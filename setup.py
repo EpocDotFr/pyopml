@@ -9,7 +9,7 @@ NAME = 'pyopml'
 DESCRIPTION = 'Python package meant to read, manipulate and write OPML 2.0 files'
 URL = 'https://github.com/EpocDotFr/pyopml'
 EMAIL = 'contact.nospam@epoc.nospam.fr'
-AUTHOR = 'Maxime "Epoc" G.'
+AUTHOR = 'Maxime "Epoc" Gross'
 REQUIRES_PYTHON = '>=3.6.0'
 VERSION = '1.0.0'
 
