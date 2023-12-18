@@ -1,18 +1,16 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Usage &#8212; PyOPML 1.0.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=28c8e701" />
+    <script src="_static/documentation_options.js?v=8d563738"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="API Documentation" href="api.html" />
@@ -80,7 +78,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="documentwrapper">
@@ -90,9 +88,9 @@
           <div class="body" role="main">
             
   <section id="usage">
-<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<h1>Usage<a class="headerlink" href="#usage" title="Link to this heading">¶</a></h1>
 <section id="creating-opml-documents">
-<h2>Creating OPML documents<a class="headerlink" href="#creating-opml-documents" title="Permalink to this headline">¶</a></h2>
+<h2>Creating OPML documents<a class="headerlink" href="#creating-opml-documents" title="Link to this heading">¶</a></h2>
 <p>PyOPML allows you to create OPML 2.0 documents from scratch, which may or may not be <a class="reference internal" href="#serializing-opml-documents"><span class="std std-ref">serialized</span></a> to a file or as a string afterhand. It all starts by instantiating a new <a class="reference internal" href="api.html#opml.OpmlDocument" title="opml.OpmlDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">opml.OpmlDocument</span></code></a> object. None of the constructor’s arguments are required, so you could just:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">opml</span> <span class="kn">import</span> <span class="n">OpmlDocument</span>
 
@@ -111,7 +109,7 @@
 </div>
 </section>
 <section id="unserializing-opml-documents">
-<h2>Unserializing OPML documents<a class="headerlink" href="#unserializing-opml-documents" title="Permalink to this headline">¶</a></h2>
+<h2>Unserializing OPML documents<a class="headerlink" href="#unserializing-opml-documents" title="Link to this heading">¶</a></h2>
 <p>You may not want to create OPML 2.0 documents from scratch. PyOPML allows to unserialize existing ones instead, by providing two class methods:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="api.html#opml.OpmlDocument.load" title="opml.OpmlDocument.load"><code class="xref py py-meth docutils literal notranslate"><span class="pre">opml.OpmlDocument.load()</span></code></a> which unserializes a document from a filename or a file-like object:</p></li>
@@ -146,10 +144,10 @@
 </div>
 </section>
 <section id="manipulating-opml-documents">
-<h2>Manipulating OPML documents<a class="headerlink" href="#manipulating-opml-documents" title="Permalink to this headline">¶</a></h2>
+<h2>Manipulating OPML documents<a class="headerlink" href="#manipulating-opml-documents" title="Link to this heading">¶</a></h2>
 <p>It’s once you got an <a class="reference internal" href="api.html#opml.OpmlDocument" title="opml.OpmlDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">opml.OpmlDocument</span></code></a> instance that things starts to be interesting.</p>
 <section id="getting-and-setting-document-s-metadata">
-<h3>Getting and setting document’s metadata<a class="headerlink" href="#getting-and-setting-document-s-metadata" title="Permalink to this headline">¶</a></h3>
+<h3>Getting and setting document’s metadata<a class="headerlink" href="#getting-and-setting-document-s-metadata" title="Link to this heading">¶</a></h3>
 <p>Use the <a class="reference internal" href="api.html#opml.OpmlDocument" title="opml.OpmlDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">opml.OpmlDocument</span></code></a> instance attributes, Luke:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">opml</span> <span class="kn">import</span> <span class="n">OpmlDocument</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
@@ -168,7 +166,7 @@
 </div>
 </section>
 <section id="adding-outlines-to-the-document">
-<h3>Adding outlines to the document<a class="headerlink" href="#adding-outlines-to-the-document" title="Permalink to this headline">¶</a></h3>
+<h3>Adding outlines to the document<a class="headerlink" href="#adding-outlines-to-the-document" title="Link to this heading">¶</a></h3>
 <p>There a bunch of methods for that:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="api.html#opml.OpmlDocument.add_rss" title="opml.OpmlDocument.add_rss"><code class="xref py py-meth docutils literal notranslate"><span class="pre">opml.OpmlDocument.add_rss()</span></code></a> which adds a RSS feed:</p></li>
@@ -224,7 +222,7 @@
 </div>
 </section>
 <section id="getting-and-setting-outline-s-data">
-<h3>Getting and setting outline’s data<a class="headerlink" href="#getting-and-setting-outline-s-data" title="Permalink to this headline">¶</a></h3>
+<h3>Getting and setting outline’s data<a class="headerlink" href="#getting-and-setting-outline-s-data" title="Link to this heading">¶</a></h3>
 <p>The aforementioned methods all returns references to <a class="reference internal" href="api.html#opml.OpmlOutline" title="opml.OpmlOutline"><code class="xref py py-class docutils literal notranslate"><span class="pre">opml.OpmlOutline</span></code></a> instances that have just been created. Again, use the attributes, Luke:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">opml</span> <span class="kn">import</span> <span class="n">OpmlDocument</span>
 
@@ -249,7 +247,7 @@
 </div>
 </section>
 <section id="creating-outlines-trees">
-<h3>Creating outlines trees<a class="headerlink" href="#creating-outlines-trees" title="Permalink to this headline">¶</a></h3>
+<h3>Creating outlines trees<a class="headerlink" href="#creating-outlines-trees" title="Link to this heading">¶</a></h3>
 <p><a class="reference internal" href="api.html#opml.OpmlOutline" title="opml.OpmlOutline"><code class="xref py py-class docutils literal notranslate"><span class="pre">opml.OpmlOutline</span></code></a> instances themselves shares the same aforementioned methods, which allows us to append outlines to another in a tree-like fashion:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">opml</span> <span class="kn">import</span> <span class="n">OpmlDocument</span>
 
@@ -286,7 +284,7 @@
 </section>
 </section>
 <section id="serializing-opml-documents">
-<h2>Serializing OPML documents<a class="headerlink" href="#serializing-opml-documents" title="Permalink to this headline">¶</a></h2>
+<h2>Serializing OPML documents<a class="headerlink" href="#serializing-opml-documents" title="Link to this heading">¶</a></h2>
 <p>Finally, you’ll want to save OPML 2.0 documents you created or manipulated. PyOPML provides two methods:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="api.html#opml.OpmlDocument.dump" title="opml.OpmlDocument.dump"><code class="xref py py-meth docutils literal notranslate"><span class="pre">opml.OpmlDocument.dump()</span></code></a> which serializes the document to a filename or a file-like object:</p></li>

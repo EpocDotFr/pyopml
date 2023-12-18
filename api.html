@@ -1,18 +1,16 @@
-
 <!DOCTYPE html>
 
-<html>
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>API Documentation &#8212; PyOPML 1.0.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=28c8e701" />
+    <script src="_static/documentation_options.js?v=8d563738"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Usage" href="usage.html" />
@@ -42,8 +40,32 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#classes">Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#opml.OpmlDocument"><code class="docutils literal notranslate"><span class="pre">OpmlDocument</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#opml.OpmlDocument.add_include"><code class="docutils literal notranslate"><span class="pre">OpmlDocument.add_include()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opml.OpmlDocument.add_link"><code class="docutils literal notranslate"><span class="pre">OpmlDocument.add_link()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opml.OpmlDocument.add_outline"><code class="docutils literal notranslate"><span class="pre">OpmlDocument.add_outline()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opml.OpmlDocument.add_rss"><code class="docutils literal notranslate"><span class="pre">OpmlDocument.add_rss()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opml.OpmlDocument.dump"><code class="docutils literal notranslate"><span class="pre">OpmlDocument.dump()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opml.OpmlDocument.dumps"><code class="docutils literal notranslate"><span class="pre">OpmlDocument.dumps()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opml.OpmlDocument.load"><code class="docutils literal notranslate"><span class="pre">OpmlDocument.load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opml.OpmlDocument.loads"><code class="docutils literal notranslate"><span class="pre">OpmlDocument.loads()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#opml.OpmlOutline"><code class="docutils literal notranslate"><span class="pre">OpmlOutline</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#opml.OpmlOutline.add_include"><code class="docutils literal notranslate"><span class="pre">OpmlOutline.add_include()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opml.OpmlOutline.add_link"><code class="docutils literal notranslate"><span class="pre">OpmlOutline.add_link()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opml.OpmlOutline.add_outline"><code class="docutils literal notranslate"><span class="pre">OpmlOutline.add_outline()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opml.OpmlOutline.add_rss"><code class="docutils literal notranslate"><span class="pre">OpmlOutline.add_rss()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exceptions">Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#opml.exceptions.OpmlReadError"><code class="docutils literal notranslate"><span class="pre">OpmlReadError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opml.exceptions.OpmlWriteError"><code class="docutils literal notranslate"><span class="pre">OpmlWriteError</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -71,7 +93,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="documentwrapper">
@@ -81,16 +103,16 @@
           <div class="body" role="main">
             
   <section id="api-documentation">
-<h1>API Documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline">¶</a></h1>
+<h1>API Documentation<a class="headerlink" href="#api-documentation" title="Link to this heading">¶</a></h1>
 <p>This page document all the public stuff you can use from PyOPML. For usage documentation, see <a class="reference internal" href="usage.html"><span class="doc">Usage</span></a>.</p>
 <section id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="opml.OpmlDocument">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">opml.</span></span><span class="sig-name descname"><span class="pre">OpmlDocument</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kvargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlDocument" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">opml.</span></span><span class="sig-name descname"><span class="pre">OpmlDocument</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kvargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlDocument" title="Link to this definition">¶</a></dt>
 <dd><p>Class that holds an OPML 2.0 document.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – Title of the document</p></li>
 <li><p><strong>date_created</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/datetime.html#datetime.datetime" title="(in Python v3.6)"><em>datetime.datetime</em></a>) – When the document was created</p></li>
@@ -106,7 +128,7 @@
 <li><p><strong>window_right</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – Pixel location of the right edge of the window</p></li>
 </ul>
 </dd>
-<dt class="field-even">Variables</dt>
+<dt class="field-even">Variables<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – Title of the document</p></li>
 <li><p><strong>date_created</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/datetime.html#datetime.datetime" title="(in Python v3.6)"><em>datetime.datetime</em></a>) – When the document was created</p></li>
@@ -125,10 +147,10 @@
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="opml.OpmlDocument.add_include">
-<span class="sig-name descname"><span class="pre">add_include</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_breakpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categories</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlDocument.add_include" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_include</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_breakpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categories</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlDocument.add_include" title="Link to this definition">¶</a></dt>
 <dd><p>Create a new outline of type “include”, append it to this object’s outlines and return it.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – Text of the outline</p></li>
 <li><p><strong>url</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – An URL to an OPML document</p></li>
@@ -138,7 +160,7 @@
 <li><p><strong>categories</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#list" title="(in Python v3.6)"><em>list</em></a>) – A list of <a class="reference external" href="https://validator.w3.org/feed/docs/rss2.html#ltcategorygtSubelementOfLtitemgt">RSS 2.0</a> categories. To represent a “tag”, the category string should contain no slashes</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#opml.OpmlOutline" title="opml.OpmlOutline">opml.OpmlOutline</a></p>
 </dd>
 </dl>
@@ -146,10 +168,10 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="opml.OpmlDocument.add_link">
-<span class="sig-name descname"><span class="pre">add_link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_breakpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categories</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlDocument.add_link" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_breakpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categories</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlDocument.add_link" title="Link to this definition">¶</a></dt>
 <dd><p>Create a new outline of type “link”, append it to this object’s outlines and return it.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – Text of the outline</p></li>
 <li><p><strong>url</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – An URL to a web page</p></li>
@@ -159,7 +181,7 @@
 <li><p><strong>categories</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#list" title="(in Python v3.6)"><em>list</em></a>) – A list of <a class="reference external" href="https://validator.w3.org/feed/docs/rss2.html#ltcategorygtSubelementOfLtitemgt">RSS 2.0</a> categories. To represent a “tag”, the category string should contain no slashes</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#opml.OpmlOutline" title="opml.OpmlOutline">opml.OpmlOutline</a></p>
 </dd>
 </dl>
@@ -167,10 +189,10 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="opml.OpmlDocument.add_outline">
-<span class="sig-name descname"><span class="pre">add_outline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kvargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlDocument.add_outline" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_outline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kvargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlDocument.add_outline" title="Link to this definition">¶</a></dt>
 <dd><p>Create a new outline, append it to this object’s outlines and return it.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – Text of the outline</p></li>
 <li><p><strong>type</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – How the other attributes of the outline are interpreted. One of <code class="docutils literal notranslate"><span class="pre">rss</span></code>, <code class="docutils literal notranslate"><span class="pre">link</span></code> or <code class="docutils literal notranslate"><span class="pre">include</span></code></p></li>
@@ -187,7 +209,7 @@
 <li><p><strong>categories</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#list" title="(in Python v3.6)"><em>list</em></a>) – A list of <a class="reference external" href="https://validator.w3.org/feed/docs/rss2.html#ltcategorygtSubelementOfLtitemgt">RSS 2.0</a> categories. To represent a “tag”, the category string should contain no slashes</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#opml.OpmlOutline" title="opml.OpmlOutline">opml.OpmlOutline</a></p>
 </dd>
 </dl>
@@ -195,10 +217,10 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="opml.OpmlDocument.add_rss">
-<span class="sig-name descname"><span class="pre">add_rss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xml_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">html_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_breakpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categories</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlDocument.add_rss" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_rss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xml_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">html_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_breakpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categories</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlDocument.add_rss" title="Link to this definition">¶</a></dt>
 <dd><p>Create a new outline of type “rss”, append it to this object’s outlines and return it.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – Text of the outline</p></li>
 <li><p><strong>xml_url</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – URL to the feed</p></li>
@@ -213,7 +235,7 @@
 <li><p><strong>categories</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#list" title="(in Python v3.6)"><em>list</em></a>) – A list of <a class="reference external" href="https://validator.w3.org/feed/docs/rss2.html#ltcategorygtSubelementOfLtitemgt">RSS 2.0</a> categories. To represent a “tag”, the category string should contain no slashes</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#opml.OpmlOutline" title="opml.OpmlOutline">opml.OpmlOutline</a></p>
 </dd>
 </dl>
@@ -221,13 +243,13 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="opml.OpmlDocument.dump">
-<span class="sig-name descname"><span class="pre">dump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pretty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'UTF-8'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlDocument.dump" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pretty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'UTF-8'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlDocument.dump" title="Link to this definition">¶</a></dt>
 <dd><p>Serialize this document to a filename or file-like object.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Raises</dt>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#opml.exceptions.OpmlWriteError" title="opml.exceptions.OpmlWriteError"><strong>opml.exceptions.OpmlWriteError</strong></a> – </p>
 </dd>
-<dt class="field-even">Parameters</dt>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>fp</strong> – A filename or file-like object</p></li>
 <li><p><strong>pretty</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a>) – Whether to pretty print the outputted XML code or not</p></li>
@@ -239,19 +261,19 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="opml.OpmlDocument.dumps">
-<span class="sig-name descname"><span class="pre">dumps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pretty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'UTF-8'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlDocument.dumps" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">dumps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pretty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'UTF-8'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlDocument.dumps" title="Link to this definition">¶</a></dt>
 <dd><p>Serialize this document to a string.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Raises</dt>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#opml.exceptions.OpmlWriteError" title="opml.exceptions.OpmlWriteError"><strong>opml.exceptions.OpmlWriteError</strong></a> – </p>
 </dd>
-<dt class="field-even">Parameters</dt>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>pretty</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a>) – Whether to pretty print the outputted XML code or not</p></li>
 <li><p><strong>encoding</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – The encoding to use. Will also define the XML’s encoding declaration</p></li>
 </ul>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)">str</a></p>
 </dd>
 </dl>
@@ -259,16 +281,16 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="opml.OpmlDocument.load">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlDocument.load" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlDocument.load" title="Link to this definition">¶</a></dt>
 <dd><p>Unserialize OPML 2.0 data from a filename or file-like object.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Raises</dt>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#opml.exceptions.OpmlReadError" title="opml.exceptions.OpmlReadError"><strong>opml.exceptions.OpmlReadError</strong></a> – </p>
 </dd>
-<dt class="field-even">Parameters</dt>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>fp</strong> – A filename or file-like object</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#opml.OpmlDocument" title="opml.OpmlDocument">opml.OpmlDocument</a></p>
 </dd>
 </dl>
@@ -276,16 +298,16 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="opml.OpmlDocument.loads">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">loads</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlDocument.loads" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">loads</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlDocument.loads" title="Link to this definition">¶</a></dt>
 <dd><p>Unserialize OPML 2.0 data from a string.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Raises</dt>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#opml.exceptions.OpmlReadError" title="opml.exceptions.OpmlReadError"><strong>opml.exceptions.OpmlReadError</strong></a> – </p>
 </dd>
-<dt class="field-even">Parameters</dt>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>s</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – The string to unserialize from</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#opml.OpmlDocument" title="opml.OpmlDocument">opml.OpmlDocument</a></p>
 </dd>
 </dl>
@@ -295,10 +317,10 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="opml.OpmlOutline">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">opml.</span></span><span class="sig-name descname"><span class="pre">OpmlOutline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kvargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlOutline" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">opml.</span></span><span class="sig-name descname"><span class="pre">OpmlOutline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kvargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlOutline" title="Link to this definition">¶</a></dt>
 <dd><p>Class that holds an OPML 2.0 outline element.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – Text of the outline</p></li>
 <li><p><strong>type</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – How the other attributes of the outline are interpreted. One of <code class="docutils literal notranslate"><span class="pre">rss</span></code>, <code class="docutils literal notranslate"><span class="pre">link</span></code> or <code class="docutils literal notranslate"><span class="pre">include</span></code></p></li>
@@ -315,7 +337,7 @@
 <li><p><strong>categories</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#list" title="(in Python v3.6)"><em>list</em></a>) – A list of <a class="reference external" href="https://validator.w3.org/feed/docs/rss2.html#ltcategorygtSubelementOfLtitemgt">RSS 2.0</a> categories. To represent a “tag”, the category string should contain no slashes</p></li>
 </ul>
 </dd>
-<dt class="field-even">Variables</dt>
+<dt class="field-even">Variables<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – Text of the outline</p></li>
 <li><p><strong>type</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – How the other attributes of the outline are interpreted. One of <code class="docutils literal notranslate"><span class="pre">rss</span></code>, <code class="docutils literal notranslate"><span class="pre">link</span></code> or <code class="docutils literal notranslate"><span class="pre">include</span></code></p></li>
@@ -335,10 +357,10 @@
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="opml.OpmlOutline.add_include">
-<span class="sig-name descname"><span class="pre">add_include</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_breakpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categories</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlOutline.add_include" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_include</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_breakpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categories</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlOutline.add_include" title="Link to this definition">¶</a></dt>
 <dd><p>Create a new outline of type “include”, append it to this object’s outlines and return it.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – Text of the outline</p></li>
 <li><p><strong>url</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – An URL to an OPML document</p></li>
@@ -348,7 +370,7 @@
 <li><p><strong>categories</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#list" title="(in Python v3.6)"><em>list</em></a>) – A list of <a class="reference external" href="https://validator.w3.org/feed/docs/rss2.html#ltcategorygtSubelementOfLtitemgt">RSS 2.0</a> categories. To represent a “tag”, the category string should contain no slashes</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#opml.OpmlOutline" title="opml.OpmlOutline">opml.OpmlOutline</a></p>
 </dd>
 </dl>
@@ -356,10 +378,10 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="opml.OpmlOutline.add_link">
-<span class="sig-name descname"><span class="pre">add_link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_breakpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categories</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlOutline.add_link" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_breakpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categories</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlOutline.add_link" title="Link to this definition">¶</a></dt>
 <dd><p>Create a new outline of type “link”, append it to this object’s outlines and return it.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – Text of the outline</p></li>
 <li><p><strong>url</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – An URL to a web page</p></li>
@@ -369,7 +391,7 @@
 <li><p><strong>categories</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#list" title="(in Python v3.6)"><em>list</em></a>) – A list of <a class="reference external" href="https://validator.w3.org/feed/docs/rss2.html#ltcategorygtSubelementOfLtitemgt">RSS 2.0</a> categories. To represent a “tag”, the category string should contain no slashes</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#opml.OpmlOutline" title="opml.OpmlOutline">opml.OpmlOutline</a></p>
 </dd>
 </dl>
@@ -377,10 +399,10 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="opml.OpmlOutline.add_outline">
-<span class="sig-name descname"><span class="pre">add_outline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kvargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlOutline.add_outline" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_outline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kvargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlOutline.add_outline" title="Link to this definition">¶</a></dt>
 <dd><p>Create a new outline, append it to this object’s outlines and return it.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – Text of the outline</p></li>
 <li><p><strong>type</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – How the other attributes of the outline are interpreted. One of <code class="docutils literal notranslate"><span class="pre">rss</span></code>, <code class="docutils literal notranslate"><span class="pre">link</span></code> or <code class="docutils literal notranslate"><span class="pre">include</span></code></p></li>
@@ -397,7 +419,7 @@
 <li><p><strong>categories</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#list" title="(in Python v3.6)"><em>list</em></a>) – A list of <a class="reference external" href="https://validator.w3.org/feed/docs/rss2.html#ltcategorygtSubelementOfLtitemgt">RSS 2.0</a> categories. To represent a “tag”, the category string should contain no slashes</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#opml.OpmlOutline" title="opml.OpmlOutline">opml.OpmlOutline</a></p>
 </dd>
 </dl>
@@ -405,10 +427,10 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="opml.OpmlOutline.add_rss">
-<span class="sig-name descname"><span class="pre">add_rss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xml_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">html_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_breakpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categories</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlOutline.add_rss" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_rss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xml_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">html_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_breakpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categories</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#opml.OpmlOutline.add_rss" title="Link to this definition">¶</a></dt>
 <dd><p>Create a new outline of type “rss”, append it to this object’s outlines and return it.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – Text of the outline</p></li>
 <li><p><strong>xml_url</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – URL to the feed</p></li>
@@ -423,7 +445,7 @@
 <li><p><strong>categories</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/stdtypes.html#list" title="(in Python v3.6)"><em>list</em></a>) – A list of <a class="reference external" href="https://validator.w3.org/feed/docs/rss2.html#ltcategorygtSubelementOfLtitemgt">RSS 2.0</a> categories. To represent a “tag”, the category string should contain no slashes</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="#opml.OpmlOutline" title="opml.OpmlOutline">opml.OpmlOutline</a></p>
 </dd>
 </dl>
@@ -433,17 +455,17 @@
 
 </section>
 <section id="exceptions">
-<h2>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
+<h2>Exceptions<a class="headerlink" href="#exceptions" title="Link to this heading">¶</a></h2>
 <p>PyOPML may raise its own exceptions under specific circumstances in addition of the <a class="reference external" href="https://lxml.de/">lxml</a> ones.</p>
-<span class="target" id="module-opml.exceptions"></span><dl class="py exception">
+<dl class="py exception" id="module-opml.exceptions">
 <dt class="sig sig-object py" id="opml.exceptions.OpmlReadError">
-<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">opml.exceptions.</span></span><span class="sig-name descname"><span class="pre">OpmlReadError</span></span><a class="headerlink" href="#opml.exceptions.OpmlReadError" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">opml.exceptions.</span></span><span class="sig-name descname"><span class="pre">OpmlReadError</span></span><a class="headerlink" href="#opml.exceptions.OpmlReadError" title="Link to this definition">¶</a></dt>
 <dd><p>This exception is thrown when a blocking OPML-related read error is encountered.</p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="opml.exceptions.OpmlWriteError">
-<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">opml.exceptions.</span></span><span class="sig-name descname"><span class="pre">OpmlWriteError</span></span><a class="headerlink" href="#opml.exceptions.OpmlWriteError" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">opml.exceptions.</span></span><span class="sig-name descname"><span class="pre">OpmlWriteError</span></span><a class="headerlink" href="#opml.exceptions.OpmlWriteError" title="Link to this definition">¶</a></dt>
 <dd><p>This exception is thrown when a blocking OPML-related write error is encountered.</p>
 </dd></dl>
 
